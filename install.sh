@@ -18,7 +18,7 @@ fi
 
 # ── Step 2: Install packages ────────────────────────────────
 echo "[2/6] Installing Homebrew packages..."
-brew install helix zellij yazi oh-my-posh bat fzf nvm pyenv graphite
+brew install helix zellij yazi oh-my-posh bat fzf nvm pyenv
 brew install --cask ghostty font-meslo-lg-nerd-font
 
 # ── Step 3: Install language tooling ────────────────────────
@@ -71,6 +71,14 @@ bun install -g typescript-language-server typescript \
 
 pip install basedpyright ruff
 brew install postgres-language-server terraform-ls 2>/dev/null || true
+
+# Graphite (git workflow tool)
+if ! command -v gt &> /dev/null; then
+    echo "  Installing Graphite..."
+    bun install -g @withgraphite/graphite-cli
+else
+    echo "  Graphite already installed, skipping."
+fi
 
 # ── Step 5: Symlink config files ────────────────────────────
 echo "[5/6] Symlinking config files..."
