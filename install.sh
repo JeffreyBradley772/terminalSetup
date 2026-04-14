@@ -127,10 +127,15 @@ link_file "$DOTFILES_DIR/git/ignore"             "$HOME/.config/git/ignore"
 
 # ── Step 6: Install Yazi flavor ─────────────────────────────
 echo "[6/6] Installing Yazi catppuccin-mocha flavor..."
-if command -v ya &> /dev/null; then
-    ya pack -i
+FLAVOR_DIR="$HOME/.config/yazi/flavors/catppuccin-mocha.yazi"
+if [ -d "$FLAVOR_DIR" ]; then
+    echo "  Flavor already installed, skipping."
 else
-    echo "  'ya' not found, install Yazi flavor manually with: ya pack -i"
+    git clone https://github.com/yazi-rs/flavors.git /tmp/yazi-flavors
+    mkdir -p "$FLAVOR_DIR"
+    cp -r /tmp/yazi-flavors/catppuccin-mocha.yazi/* "$FLAVOR_DIR/"
+    rm -rf /tmp/yazi-flavors
+    echo "  Installed catppuccin-mocha flavor."
 fi
 
 echo ""
