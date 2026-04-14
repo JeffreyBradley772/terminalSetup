@@ -69,6 +69,7 @@ bun install -g typescript-language-server typescript \
     bash-language-server \
     yaml-language-server
 
+eval "$(pyenv init --path)"
 pip install basedpyright ruff
 brew install postgres-language-server terraform-ls 2>/dev/null || true
 
