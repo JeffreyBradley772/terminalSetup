@@ -1,0 +1,135 @@
+# ── Language Server Definitions ───────────────────────────────
+
+[language-server.rust-analyzer]
+command = "rust-analyzer"
+
+[language-server.rust-analyzer.config]
+check = { command = "clippy" }
+checkOnSave = true
+cargo = { allFeatures = true, targetDir = true }
+
+[language-server.typescript-language-server]
+command = "typescript-language-server"
+args = ["--stdio"]
+
+[language-server.tailwindcss-language-server]
+command = "tailwindcss-language-server"
+args = ["--stdio"]
+
+[language-server.vscode-eslint-language-server]
+command = "vscode-eslint-language-server"
+args = ["--stdio"]
+
+[language-server.vscode-json-language-server]
+command = "vscode-json-language-server"
+args = ["--stdio"]
+
+[language-server.vscode-html-language-server]
+command = "vscode-html-language-server"
+args = ["--stdio"]
+
+[language-server.vscode-css-language-server]
+command = "vscode-css-language-server"
+args = ["--stdio"]
+
+[language-server.bash-language-server]
+command = "bash-language-server"
+args = ["start"]
+
+[language-server.yaml-language-server]
+command = "yaml-language-server"
+args = ["--stdio"]
+
+[language-server.basedpyright]
+command = "basedpyright-langserver"
+args = ["--stdio"]
+
+[language-server.ruff-lsp]
+command = "ruff"
+args = ["server"]
+
+[language-server.postgres-language-server]
+command = "postgres-language-server"
+args = ["lsp-proxy"]
+
+[language-server.terraform-ls]
+command = "terraform-ls"
+args = ["serve"]
+
+# ── Rust ──────────────────────────────────────────────────────
+[[language]]
+name = "rust"
+auto-format = true
+
+# ── TypeScript / TSX ─────────────────────────────────────────
+[[language]]
+name = "typescript"
+auto-format = true
+language-servers = ["typescript-language-server", "vscode-eslint-language-server"]
+
+[[language]]
+name = "tsx"
+auto-format = true
+language-servers = ["typescript-language-server", "tailwindcss-language-server", "vscode-eslint-language-server"]
+
+[[language]]
+name = "javascript"
+auto-format = true
+language-servers = ["typescript-language-server", "vscode-eslint-language-server"]
+
+[[language]]
+name = "jsx"
+auto-format = true
+language-servers = ["typescript-language-server", "tailwindcss-language-server", "vscode-eslint-language-server"]
+
+# ── Python ───────────────────────────────────────────────────
+[[language]]
+name = "python"
+auto-format = true
+formatter = { command = "ruff", args = ["format", "-"] }
+language-servers = ["basedpyright", "ruff-lsp"]
+
+# ── SQL ──────────────────────────────────────────────────────
+[[language]]
+name = "sql"
+language-servers = ["postgres-language-server"]
+file-types = ["sql"]
+roots = ["postgres-language-server.jsonc"]
+
+# ── Terraform / HCL ─────────────────────────────────────────
+[[language]]
+name = "hcl"
+scope = "source.hcl"
+language-servers = ["terraform-ls"]
+file-types = ["tf"]
+language-id = "terraform"
+
+# ── JSON ─────────────────────────────────────────────────────
+[[language]]
+name = "json"
+auto-format = true
+language-servers = ["vscode-json-language-server"]
+
+# ── HTML ─────────────────────────────────────────────────────
+[[language]]
+name = "html"
+auto-format = true
+language-servers = ["vscode-html-language-server", "tailwindcss-language-server"]
+
+# ── CSS ──────────────────────────────────────────────────────
+[[language]]
+name = "css"
+auto-format = true
+language-servers = ["vscode-css-language-server", "tailwindcss-language-server"]
+
+# ── YAML ─────────────────────────────────────────────────────
+[[language]]
+name = "yaml"
+auto-format = true
+language-servers = ["yaml-language-server"]
+
+# ── Bash ─────────────────────────────────────────────────────
+[[language]]
+name = "bash"
+auto-format = true
+language-servers = ["bash-language-server"]

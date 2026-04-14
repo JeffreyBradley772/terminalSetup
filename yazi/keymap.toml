@@ -1,0 +1,8 @@
+[mgr]
+prepend_keymap = [
+  { on = "f", run = "search fd", desc = "Search files by name" },
+  { on = "F", run = "search rg", desc = "Search file contents" },
+  { on = ".", run = "hidden toggle", desc = "Toggle hidden files" },
+  { on = ["g", "p"], run = "cd ~/Documents/figureate", desc = "Go to project" },
+  { on = ["g", "h"], run = "cd ~", desc = "Go to home" },
+]

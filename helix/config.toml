@@ -1,0 +1,69 @@
+theme = "catppuccin_mocha"
+
+[editor]
+line-number = "relative"
+bufferline = "multiple"
+color-modes = true
+true-color = true
+undercurl = true
+cursorline = true
+rulers = [100]
+idle-timeout = 200
+completion-timeout = 50
+gutters = ["diagnostics", "spacer", "line-numbers", "spacer", "diff"]
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.auto-save]
+focus-lost = true
+after-delay.enable = true
+after-delay.timeout = 5000
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "file-modification-indicator"]
+center = ["diagnostics", "workspace-diagnostics"]
+right = ["selections", "position", "position-percentage", "file-type", "version-control"]
+separator = "│"
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+display-signature-help-docs = true
+snippets = true
+
+[editor.indent-guides]
+render = true
+character = "│"
+skip-levels = 1
+rainbow-option = "dim"
+
+[editor.soft-wrap]
+enable = false
+
+[editor.file-picker]
+hidden = false
+
+# ── Keybinding Remaps (Zellij conflict resolution) ─────────
+#
+# Zellij intercepts: Ctrl-s, Ctrl-b, Ctrl-o, Ctrl-p, Ctrl-n,
+# Ctrl-t, Ctrl-q, Ctrl-h, Ctrl-g
+# These remaps restore lost Helix functionality via Alt keys.
+
+[keys.normal]
+A-o = "jump_backward"     # Ctrl-o stolen by Zellij session mode
+A-b = "page_up"           # Ctrl-b stolen by Zellij tmux mode
+A-s = "save_selection"    # Ctrl-s stolen by Zellij scroll mode
+
+[keys.normal.space]
+"w" = ":write"            # Quick save (Ctrl-s unavailable)
+"q" = ":quit"             # Quick quit (Ctrl-q unavailable)
+"x" = ":write-quit"      # Save and quit
+"Q" = ":quit!"            # Force quit
+
+[keys.select]
+A-o = "jump_backward"
+A-b = "page_up"
+A-s = "save_selection"

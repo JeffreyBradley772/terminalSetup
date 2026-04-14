@@ -1,0 +1,17 @@
+layout {
+    pane size=1 borderless=true {
+        plugin location="tab-bar"
+    }
+    pane split_direction="vertical" {
+        pane size="35%" command="/opt/homebrew/bin/yazi" {
+            args "/Users/jeffrey/Documents/figureate"
+        }
+        pane split_direction="horizontal" focus=true {
+            pane
+            pane
+        }
+    }
+    pane size=1 borderless=true {
+        plugin location="status-bar"
+    }
+}

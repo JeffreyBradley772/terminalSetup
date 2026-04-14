@@ -1,0 +1,12 @@
+[user]
+    name = Jeffrey Bradley
+    email = jeffreybradley772@gmail.com
+	signingkey = /Users/jeffrey/.ssh/id_ed25519_gitlab.pub
+
+[includeIf "gitdir:~/Higher Ground/"]
+    path = ~/.gitconfig-higherground
+
+[pull]
+	rebase = false
+[gpg]
+	format = ssh

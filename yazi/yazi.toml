@@ -1,0 +1,38 @@
+[mgr]
+ratio = [1, 3, 4]
+sort_by = "natural"
+sort_dir_first = true
+linemode = "size"
+show_hidden = true
+show_symlink = true
+scrolloff = 5
+
+[preview]
+wrap = "yes"
+tab_size = 4
+max_width = 600
+max_height = 900
+
+[opener]
+edit = [
+  { run = 'zellij edit "$@"', desc = "Open in Helix pane", for = "unix" },
+  { run = '/opt/homebrew/bin/hx "$@"', block = true, desc = "Edit with Helix (blocking)", for = "unix" },
+]
+open = [
+  { run = 'open "$@"', desc = "Open with system default", for = "macos" },
+]
+reveal = [
+  { run = 'open -R "$1"', desc = "Reveal in Finder", for = "macos" },
+]
+
+[open]
+rules = [
+  { name = "*/", use = ["edit", "open", "reveal"] },
+  { mime = "text/*", use = ["edit", "open"] },
+  { mime = "application/json", use = ["edit", "open"] },
+  { mime = "application/x-toml", use = ["edit", "open"] },
+  { mime = "application/x-yaml", use = ["edit", "open"] },
+  { mime = "image/*", use = ["open", "reveal"] },
+  { mime = "video/*", use = ["open", "reveal"] },
+  { mime = "*", use = ["open", "reveal"] },
+]
