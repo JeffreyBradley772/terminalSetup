@@ -1,0 +1,2 @@
+# terminalSetup
+Distributable terminal setup
